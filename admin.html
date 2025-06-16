@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - FC WOLVES</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/mobile.css" rel="stylesheet">
+</head>
+<body class="admin-dashboard">
+    <header class="admin-header">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="FC WOLVES" class="logo">
+            <h1>FC WOLVES - لوحة التحكم</h1>
+        </div>
+        <button id="logoutBtn" class="logout-btn">تسجيل الخروج</button>
+    </header>
+
+    <main class="admin-main">
+        <nav class="admin-nav">
+            <ul>
+                <li class="active" data-section="players-section"><i class="fas fa-users"></i> اللاعبين</li>
+                <li data-section="matches-section"><i class="fas fa-calendar-alt"></i> المباريات</li>
+                <li data-section="posts-section"><i class="fas fa-newspaper"></i> المنشورات</li>
+                <li data-section="notifications-section"><i class="fas fa-bell"></i> الإشعارات</li>
+            </ul>
+        </nav>
+
+        <section class="admin-content">
+            <!-- قسم إدارة اللاعبين -->
+            <div id="players-section" class="content-section active">
+                <h2><i class="fas fa-users"></i> إدارة اللاعبين</h2>
+                
+                <div class="add-player-form">
+                    <h3>إضافة لاعب جديد</h3>
+                    <form id="addPlayerForm">
+                        <div class="form-group">
+                            <label for="playerName">اسم اللاعب:</label>
+                            <input type="text" id="playerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="playerCode">رمز الدخول:</label>
+                            <input type="text" id="playerCode" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="playerPosition">المركز:</label>
+                            <select id="playerPosition" required>
+                                <option value="حارس مرمى">حارس مرمى</option>
+                                <option value="مدافع">مدافع</option>
+                                <option value="وسط">وسط</option>
+                                <option value="مهاجم">مهاجم</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="submit-btn">إضافة لاعب</button>
+                    </form>
+                </div>
+
+                <div class="players-list">
+                    <h3>قائمة اللاعبين</h3>
+                    <div class="players-grid" id="playersGrid">
+                        <!-- سيتم ملؤها باللاعبين من Firebase -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- أقسام أخرى (المباريات، المنشورات، الإشعارات) -->
+            <!-- ... -->
+        </section>
+    </main>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
